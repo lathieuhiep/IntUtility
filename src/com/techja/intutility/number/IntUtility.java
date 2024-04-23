@@ -39,4 +39,45 @@ public class IntUtility {
 
         System.out.println(kq);
     }
+
+    // in ra cac so chan
+    public void printEvenNumber() {
+        System.out.print("Cac so chan: ");
+
+        for (int i = 1; i < soN; i++) {
+            if (i % 2 == 0) {
+                System.out.print(i + " ");
+            }
+        }
+
+        System.out.println();
+    }
+
+    // in ra các số mà soN chia hết
+    public void printDivider() {
+        System.out.print("Cac so ma " + soN + " chia het: ");
+
+        for (int i = 1; i < soN; i++) {
+            if (soN % i == 0) {
+                System.out.print(i + " ");
+            }
+        }
+
+        System.out.println();
+    }
+
+    public void checkSymmetry() {
+        int soTmp = soN;
+        int soMoi = 0;
+
+        while (soTmp > 0) {
+            int chuSo = soTmp % 10;
+
+            soMoi = soMoi * 10 + chuSo;
+            soTmp = soTmp / 10;
+        }
+
+        String kq = soN + (soMoi == soN ? " la so doi xung" : " khong phai la so doi xung");
+        System.out.println(kq);
+    }
 }
