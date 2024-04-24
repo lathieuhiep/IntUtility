@@ -80,4 +80,42 @@ public class IntUtility {
         String kq = soN + (soMoi == soN ? " la so doi xung" : " khong phai la so doi xung");
         System.out.println(kq);
     }
+
+    // in ra số có nhiều ước nhất
+    public void findGCDivisor() {
+        int soUocLN = 0;
+        int soThoaMan = 0;
+        String dsCacSo = "";
+
+        for (int soI = 1; soI <= soN; soI++) {
+            int slUoc = demSoUoc(soI);
+
+            if (slUoc > soUocLN) {
+                soThoaMan = soI;
+                soUocLN = slUoc;
+                dsCacSo = soThoaMan + "";
+            } else if (slUoc == soUocLN) {
+                dsCacSo += "," + soI;
+            }
+        }
+
+        System.out.println("So co nhieu uoc nhat la: " + dsCacSo);
+        System.out.println("So luong uoc: " + soUocLN);
+    }
+
+    private int demSoUoc(int soI) {
+        if (soI == 1) {
+            return 1;
+        }
+
+        int dem = 2;
+
+        for (int i = 2; i <= soI / 2; i++) {
+            if (soI % i == 0) {
+                dem ++;
+            }
+        }
+
+        return dem;
+    }
 }
